@@ -6,16 +6,22 @@ import userIcon from "../assets/static/user-icon.png";
 import { Link } from "react-router-dom";
 import gravatar from "../utils/gravatar";
 import { logoutRequest } from "../redux/actions";
+import classNames from "classnames";
 
-const Header = ({ user, logoutRequest }) => {
+const Header = ({ user, logoutRequest, isLogin, isRegister }) => {
   const hasUser = Object.keys(user).length > 0;
 
   const handleLogOut = () => {
     logoutRequest({});
   };
 
+  const headerClass = classNames("header", {
+    isLogin,
+    isRegister,
+  });
+
   return (
-    <header className="header">
+    <header className={headerClass}>
       <Link to="/">
         <img className="header__img" src={logo} alt="Platzi Video" />
       </Link>

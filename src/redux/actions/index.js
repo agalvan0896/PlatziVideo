@@ -14,3 +14,13 @@ export const logoutRequest = (payload) => ({
   type: "LOGOUT_REQUEST",
   payload,
 });
+
+export const registerRequest = (payload) => ({
+  type: "REGISTER_REQUEST",
+  payload,
+});
+
+export const getVideoSource = (payload) => ({
+  type: "GET_VIDEO_SOURCE",
+  payload,
+});

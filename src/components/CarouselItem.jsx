@@ -6,7 +6,7 @@ import plusIcon from "../assets/static/plus-icon.png";
 import removeIcon from "../assets/static/remove-icon.png";
 import { connect } from "react-redux";
 import { setFavorite, deleteFavorite } from "../redux/actions/index";
-
+import { Link } from "react-router-dom";
 const CarouselItem = ({
   id,
   cover,
@@ -32,11 +32,14 @@ const CarouselItem = ({
       <img className="carousel-item__img" src={cover} alt={title} />
       <div className="carousel-item__details">
         <div>
-          <img
-            className="carousel-item__details--img"
-            src={playIcon}
-            alt="Play Icon"
-          />
+          <Link to={`/player/${id}`}>
+            <img
+              className="carousel-item__details--img"
+              src={playIcon}
+              alt="Play Icon"
+            />
+          </Link>
+
           {!isList && (
             <img
               className="carousel-item__details--img"
@@ -71,11 +74,9 @@ CarouselItem.propTypes = {
   duration: PropTypes.number,
 };
 
-const mapStateToProps = (state) => {};
-
 const mapDispatchToProps = {
   setFavorite: setFavorite,
   deleteFavorite: deleteFavorite,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CarouselItem);
+export default connect(null, mapDispatchToProps)(CarouselItem);
